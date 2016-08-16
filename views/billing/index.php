@@ -6,8 +6,9 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $bill app\models\Bills */
-
+$this->title='list';
 $this->params['breadcrumbs'][] = $this->title;
+$this->js
 ?>
 <style style="text/css">
     @media only screen and (max-width: 800px) {
@@ -28,6 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             top: -9999px;
             left: -9999px;
         }
+
 
         #no-more-tables tr { border: 1px solid #ccc; }
 
@@ -59,6 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
         */
         #no-more-tables td:before { content: attr(data-title); }
     }
+    .clickable-row{cursor: pointer;}
 </style>
 <div class="bills-index">
 
@@ -69,31 +72,25 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h1 class="text-center">
-                    No more tables.
-                </h1>
-                <h3 class="text-center">
-                    Resize the browser screen to see how the table changes
-                </h3>
-            </div>
-            <div id="no-more-tables">
-                <table class="col-md-12 table-bordered table-striped table-condensed cf">
-                    <thead class="cf">
-                    <tr>
 
-                        <th class="numeric">ID</th>
-                        <th class="numeric">Description</th>
-                        <th class="numeric">Organization</th>
-                        <th class="numeric">DueDate</th>
-                        <th class="numeric">balance</th>
-                        <th class="numeric">Minimum</th>
-                        <th class="numeric">Interest</th>
-                    </tr>
-                                       </thead>
+            <div id="no-more-tables">
+                <table class="col-md-12 table-bordered table-hover table-condensed cf" id="bills_list">
+                    <thead class="cf">
+                        <tr>
+
+                            <th><a href="<?=\yii\helpers\Url::toRoute(['','col'=>'Id','dir'=> $dir_view])?>" >ID <i class="<?=($col == 'Id')?$class:''?>"></i></a></th>
+                            <th><a href="<?=\yii\helpers\Url::toRoute(['','col'=>'description','dir'=>$dir_view])?>">Description <i class="<?=($col == 'description')?$class:''?>"></i></a></th>
+                            <th class="numeric"><a href="<?=\yii\helpers\Url::toRoute(['','col'=>'Organization','dir'=>$dir_view])?>">Organization<i class="<?=($col == 'Organization')?$class:''?>"></i></a></th>
+                            <th class="numeric"><a href="<?=\yii\helpers\Url::toRoute(['','col'=>'duedate','dir'=>$dir_view])?>">DueDate <i class="<?=($col == 'duedate')?$class:''?>"></i></a></th>
+                            <th class="numeric"><a href="<?=\yii\helpers\Url::toRoute(['','col'=>'balance','dir'=>$dir_view])?>">balance <i class="<?=($col == 'balance')?$class:''?>"></i></a></th>
+                            <th class="numeric"><a href="<?=\yii\helpers\Url::toRoute(['','col'=>'minimum','dir'=>$dir_view])?>">Minimum <i class="<?=($col == 'minimum')?$class:''?>"></i></></th>
+                            <th class="numeric"><a href="<?=\yii\helpers\Url::toRoute(['','col'=>'interest','dir'=>$dir_view])?>">Interest <i class="<?=($col == 'interest')?$class:''?>"></i></a></th>
+                        </tr>
+                    </thead>
                     <tbody>
-                    <?php foreach ($bills as $bill) { ?>
-                    <tr>
+                    <?php foreach ($bills as $bill) {
+                        ?>
+                    <tr class="clickable-row" data-href="<?=\yii\helpers\Url::to(['billing/update','id'=>$bill->getAttribute('Id')])?>">
                         <td data-title="Id"><?=$bill->getAttribute('Id')?></td>
                         <td data-title="Company"><?=$bill->getAttribute('Description')?></td>
                         <td data-title="Organization"><?=$bill->getAttribute('Organization')?></td>
@@ -107,9 +104,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </table>
             </div>
         </div>
-        <div class="row">
-            <p class="bg-success" style="padding:10px;margin-top:20px"><small><a href="http://elvery.net/demo/responsive-tables/#no-more-tables" target="_blank">Link</a> to original article</small></p>
-        </div>
+
     </div>
 
 
