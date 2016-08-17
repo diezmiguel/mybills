@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Bills */
@@ -24,11 +25,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'interest')->textInput() ?>
 
-    <?= $form->field($model, 'paid')->textInput() ?>
+    <?= $form->field($model, 'paid')->checkbox(array("Yes"=>"1","No"=>"0")) ?>
 
     <?= $form->field($model, 'sms')->textInput() ?>
 
-    <?= $form->field($model, 'category')->textInput() ?>
+    <?= $form->field($model, 'category')->dropDownList(ArrayHelper::map($catModel, 'id', 'category')) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
