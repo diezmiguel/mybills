@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <th class="numeric"><a href="<?=\yii\helpers\Url::toRoute(['','col'=>'balance','dir'=>$dir_view])?>">balance <i class="<?=($col == 'balance')?$class:''?>"></i></a></th>
                             <th class="numeric"><a href="<?=\yii\helpers\Url::toRoute(['','col'=>'minimum','dir'=>$dir_view])?>">Minimum <i class="<?=($col == 'minimum')?$class:''?>"></i></></th>
                             <th class="numeric"><a href="<?=\yii\helpers\Url::toRoute(['','col'=>'interest','dir'=>$dir_view])?>">Interest <i class="<?=($col == 'interest')?$class:''?>"></i></a></th>
-                            <th class="numeric"><a href="<?=\yii\helpers\Url::toRoute(['','col'=>'paid','dir'=>$dir_view])?>">Paid? <i class="<?=($col == 'interest')?$class:''?>"></i></a></th>
+                            <th class="numeric"><a href="<?=\yii\helpers\Url::toRoute(['','col'=>'paid','dir'=>$dir_view])?>">Paid? <i class="<?=($col == 'paid')?$class:''?>"></i></a></th>
                             <th class="numeric"><a href="<?=\yii\helpers\Url::toRoute(['','col'=>'category','dir'=>$dir_view])?>">Category? <i class="<?=($col == 'category')?$class:''?>"></i></a></th>
                         </tr>
                     </thead>
