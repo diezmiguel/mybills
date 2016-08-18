@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <td data-title="Open" class="numeric">$<?=number_format($bill->getAttribute('minimum'),2)?></td>
                         <td data-title="High" class="numeric"><?=$bill->getAttribute('interest')?></td>
                         <td data-title="High" class="numeric"><?=($bill->getAttribute('paid') == 0)?'No':'Yes'?></td>
-                        <td data-title="High" class="numeric"><?=$bill->getAttribute('category') ?></td>
+                        <td data-title="High" class="numeric"><?=$bill->relatedRecords['category']->category; ?></td>
                     </tr>
                     <?php }?>
                     </tbody>
