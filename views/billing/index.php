@@ -47,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <tbody>
                     <?php foreach ($bills as $bill) {
                         ?>
-                    <tr class="clickable-row" data-href="<?=\yii\helpers\Url::to(['billing/update','id'=>$bill->getAttribute('Id')])?>">
+                    <tr class="clickable-row" data-href="<?=\yii\helpers\Url::to(['billing/view','id'=>$bill->getAttribute('Id')])?>">
                         <td data-title="Id"><?=$bill->getAttribute('Id')?></td>
                         <td data-title="Company"><?=$bill->getAttribute('Description')?></td>
                         <td data-title="Organization"><?=$bill->getAttribute('Organization')?></td>
