@@ -35,8 +35,8 @@ class Bills extends \yii\db\ActiveRecord
     {
         return [
             [['dueDate'], 'safe'],
-            [['balance', 'minimum'], 'number'],
-            [['interest', 'paid', 'sms', 'category'], 'integer'],
+            [['balance', 'minimum','interest'], 'number'],
+            [['paid', 'sms', 'category'], 'integer'],
             [['Description', 'Organization'], 'string', 'max' => 45],
         ];
     }

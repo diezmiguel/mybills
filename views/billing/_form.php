@@ -17,7 +17,9 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'Organization')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'dueDate')->textInput() ?>
+    <?= $form->field($model, 'dueDate')->widget(\yii\jui\DatePicker::classname(), [
+      'language' => 'us', 'dateFormat' => 'yyyy-MM-dd'])->textInput() ?>
+
 
     <?= $form->field($model, 'balance')->textInput() ?>
 
@@ -32,7 +34,8 @@ use yii\helpers\ArrayHelper;
     <?= $form->field($model, 'category')->dropDownList(ArrayHelper::map($catModel, 'id', 'category')) ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update',
+            ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

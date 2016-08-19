@@ -49,13 +49,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         ?>
                     <tr class="clickable-row" data-href="<?=\yii\helpers\Url::to(['billing/view','id'=>$bill->getAttribute('Id')])?>">
                         <td data-title="Id"><?=$bill->getAttribute('Id')?></td>
-                        <td data-title="Company"><?=$bill->getAttribute('Description')?></td>
-                        <td data-title="Organization"><?=$bill->getAttribute('Organization')?></td>
+                        <td data-title="Company"><?=$bill->Description; ?></td>
+                        <td data-title="Organization"><?=$bill->Organization?></td>
                         <td data-title="duedate"><?=$bill->getAttribute('dueDate')?></td>
-                        <td data-title="balance" >$<?=number_format(($bill->getAttribute('balance')),2)?></td>
-                        <td data-title="Open" class="numeric">$<?=number_format($bill->getAttribute('minimum'),2)?></td>
-                        <td data-title="High" class="numeric"><?=$bill->getAttribute('interest')?></td>
-                        <td data-title="High" class="numeric"><?=($bill->getAttribute('paid') == 0)?'No':'Yes'?></td>
+                        <td data-title="balance" >$<?=number_format(($bill->balance),2)?></td>
+                        <td data-title="Open" class="numeric">$<?=number_format($bill->minimum,2)?></td>
+                        <td data-title="High" class="numeric"><?=$bill->interest?></td>
+                        <td data-title="High" class="numeric"><?=($bill->paid == 0)?'No':'Yes'?></td>
                         <td data-title="High" class="numeric"><?=$bill->relatedRecords['category']->category; ?></td>
                     </tr>
                     <?php }?>
